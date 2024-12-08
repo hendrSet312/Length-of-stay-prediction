@@ -1,9 +1,12 @@
 import polars as pl
 import numpy as np
 import joblib 
+import os
 
-target_encoder = joblib.load('pkl/target_encoder.pkl')
-xgboost = joblib.load('pkl/xgboost.pkl')
+current_dir = os.path.dirname(__file__)
+
+target_encoder = joblib.load(os.path.join(current_dir,'pkl/target_encoder.pkl'))
+xgboost = joblib.load(os.path.join(current_dir,'pkl/xgboost.pkl'))
 
 columns = [
         "MEM_GENDER", "MEM_AGE", "PAYER_LOB", 
