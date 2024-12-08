@@ -2,6 +2,9 @@ import streamlit as st
 import numpy as np
 import joblib
 from preprocessing_data import dataFrame
+import os
+
+current_dir = os.path.dirname(__file__)
 
 admit_type_options = [
     (0, "ROUTINE"),
@@ -11,12 +14,12 @@ admit_type_options = [
     (5, "TRAUMA CENTER"),
 ]
 
-adm_src = joblib.load('pkl/adm_src.pkl')
-ms_drg = joblib.load('pkl/ms_drg.pkl')
+adm_src = joblib.load(os.path.join(current_dir,'pkl/adm_src.pkl'))
+ms_drg = joblib.load(os.path.join(current_dir,'pkl/ms_drg.pkl'))
 
-unique_diag_label = joblib.load('pkl/unique_diag_label.pkl')
-unique_diag_label_2 = joblib.load('pkl/unique_diag_label_2.pkl')
-chronic_condition = joblib.load('pkl/chronic_condition.pkl')
+unique_diag_label = joblib.load(os.path.join(current_dir,'pkl/unique_diag_label.pkl'))
+unique_diag_label_2 = joblib.load(os.path.join(current_dir,'pkl/unique_diag_label_2.pkl'))
+chronic_condition = joblib.load(os.path.join(current_dir,'pkl/chronic_condition.pkl'))
 
 st.title('🛌 Length Of Stay Prediction')
 st.write("Please provide the patient's details below to help predict their hospital stay duration")
